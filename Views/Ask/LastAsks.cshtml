@@ -1,0 +1,20 @@
+﻿@model List<Lawyer.Models.AskModel>
+@{
+	ViewBag.Title = "Список вопросов";
+}
+<body class="text-justify">
+	<div class="container">
+
+
+		@foreach (var post in Model)
+		{
+			string postUrl = Url.Action("show", "ask", new RouteValueDictionary(new { slug = post.Slug }), Request.Url.Scheme, Request.Url.Host);
+
+		<p class="lead">
+			@post.Title
+			<br>
+			<a href="/ask/show/@post.Slug" class="card-link">Перейти к вопросу </a>
+		</p> <br>
+		}
+	</div>
+</body>

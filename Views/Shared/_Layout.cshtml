@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	@Styles.Render("~/content/lib")
+	@RenderSection("meta", false)
+	<title>@ViewBag.Title | Lawyer</title>
+</head>
+<body>
+	@Html.Partial("_Header")
+
+	@RenderBody()
+
+	@Scripts.Render("~/scripts/lib")
+	@RenderSection("scripts", false)
+</body>
+</html>

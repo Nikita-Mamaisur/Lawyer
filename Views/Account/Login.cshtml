@@ -1,0 +1,15 @@
+﻿@model Lawyer.Models.Account.LoginModel
+@{
+	ViewBag.Title = "Login";
+}
+<h2>Вход на сайт</h2>
+<form method="post">
+	<label>Email</label><br />
+	<input type="text" name="@nameof(Model.Email)" value="@Model.Email" /><br />
+	<label>Пароль</label><br />
+	<input type="password" name="@nameof(Model.Password)" value="" /><br />
+
+	<input type="submit" value="Войти" />
+</form>
+
+<a href="/account/register">Зарегисрироваться</a>

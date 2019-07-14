@@ -1,0 +1,28 @@
+﻿@model Lawyer.Models.AskModel
+@{
+	ViewBag.Title = "Questions";
+}
+
+
+<div class="container">
+	<div class="row">
+		<h1 class="text-center"> @Model.Body </h1>
+		<p class="text-justify">
+			@Html.Raw(Model.Body)
+		</p>
+		<div>
+			<form action="/ask/addquestions" method="post">
+				<p><text>Краткое описание вопроса: </text></p>
+				@Html.ValidationMessageFor(x => x.Title)
+				<div class="form-row input-group my-2">
+					<input class="form-control" type="text" id="title" name="title" value="@Model.Title" placeholder="Title" />
+				</div>
+				<p><text>Вопрос: </text></p>
+				<textarea name="Body" cols="50" rows="3"></textarea>
+				<input type="hidden" name="returnUrl" value="@Request.Url.AbsoluteUri" />
+				@Html.AntiForgeryToken()
+				<p><input type="submit" value="Написать" /></p>
+			</form>
+		</div>
+	</div>
+</div>
